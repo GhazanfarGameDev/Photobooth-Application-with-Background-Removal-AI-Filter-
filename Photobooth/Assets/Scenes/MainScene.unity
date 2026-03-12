@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2000423994}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowPreview
+      - m_Target: {fileID: 1624646396}
+        m_TargetAssemblyTypeName: CaptureController, Assembly-CSharp
+        m_MethodName: StartCapture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -433,6 +433,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160256775}
   m_CullTransparentMesh: 1
+--- !u!1 &227819509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 227819511}
+  - component: {fileID: 227819510}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &227819510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227819509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03138af5009269c4292330c8fef1fe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  userName: 
+  userEmail: 
+  userPhone: 
+  capturedPhoto: {fileID: 0}
+  skipValidation: 0
+  captureCountdown: 3
+--- !u!4 &227819511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227819509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245884213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2132,6 +2182,7 @@ GameObject:
   - component: {fileID: 669533691}
   - component: {fileID: 669533693}
   - component: {fileID: 669533692}
+  - component: {fileID: 669533694}
   m_Layer: 5
   m_Name: PreviewPage
   m_TagString: Untagged
@@ -2199,6 +2250,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669533690}
   m_CullTransparentMesh: 1
+--- !u!114 &669533694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669533690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23e2e480e24f964f92c548a98d650ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PreviewPageUI
+  previewImage: {fileID: 1611874380}
 --- !u!1 &672874030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5135,6 +5199,8 @@ GameObject:
   - component: {fileID: 1624646392}
   - component: {fileID: 1624646394}
   - component: {fileID: 1624646393}
+  - component: {fileID: 1624646395}
+  - component: {fileID: 1624646396}
   m_Layer: 5
   m_Name: CapturePage
   m_TagString: Untagged
@@ -5204,6 +5270,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624646391}
   m_CullTransparentMesh: 1
+--- !u!114 &1624646395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624646391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5c18026e96e124eb105d2be8ee3015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebcamManager
+  cameraPreview: {fileID: 1648961438}
+--- !u!114 &1624646396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624646391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87bc1904aef6ea4d96e430b0a49ce92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CaptureController
+  webcamManager: {fileID: 1624646395}
+  countdownText: {fileID: 668863078}
 --- !u!1 &1648961436
 GameObject:
   m_ObjectHideFlags: 0
@@ -6128,7 +6221,7 @@ Transform:
   m_GameObject: {fileID: 2000423992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 502.49738, y: 413.99774, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6424,3 +6517,4 @@ SceneRoots:
   - {fileID: 1248876448}
   - {fileID: 1624181968}
   - {fileID: 2000423993}
+  - {fileID: 227819511}

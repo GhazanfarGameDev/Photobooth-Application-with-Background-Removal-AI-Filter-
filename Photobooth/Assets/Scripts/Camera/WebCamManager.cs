@@ -1,16 +1,41 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WebCamManager : MonoBehaviour
+public class WebcamManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public RawImage cameraPreview;
+
+    private WebCamTexture webcamTexture;
+
     void Start()
     {
-        
+        StartCamera();
     }
 
-    // Update is called once per frame
-    void Update()
+    void StartCamera()
     {
-        
+        WebCamDevice[] devices = WebCamTexture.devices;
+
+        if (devices.Length == 0)
+        {
+            Debug.Log("No camera detected");
+            return;
+        }
+
+        webcamTexture = new WebCamTexture(devices[0].name);
+
+        cameraPreview.texture = webcamTexture;
+        cameraPreview.material.mainTexture = webcamTexture;
+
+        webcamTexture.Play();
+    }
+
+    public Texture2D CapturePhoto()
+    {
+        Texture2D photo = new Texture2D(webcamTexture.width, webcamTexture.height);
+        photo.SetPixels(webcamTexture.GetPixels());
+        photo.Apply();
+
+        return photo;
     }
 }

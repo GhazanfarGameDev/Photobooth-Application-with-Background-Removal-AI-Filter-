@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     {
         HideAllPages();
         homePage.SetActive(true);
+
+        GameManager.Instance.ResetSession();
     }
 
     public void ShowRegistration()
