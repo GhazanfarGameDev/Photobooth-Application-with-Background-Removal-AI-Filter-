@@ -86,26 +86,26 @@ public class APIManager : MonoBehaviour
 
     
 
-    IEnumerator DownloadImage(string url, System.Action<Texture2D> callback)
-    {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+    //IEnumerator DownloadImage(string url, System.Action<Texture2D> callback)
+    //{
+    //    UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
 
-        yield return request.SendWebRequest();
+    //    yield return request.SendWebRequest();
 
-        if (request.result != UnityWebRequest.Result.Success)
-        {
-            callback(null);
-        }
-        else
-        {
-            Texture2D tex = DownloadHandlerTexture.GetContent(request);
-            callback(tex);
-        }
-    }
+    //    if (request.result != UnityWebRequest.Result.Success)
+    //    {
+    //        callback(null);
+    //    }
+    //    else
+    //    {
+    //        Texture2D tex = DownloadHandlerTexture.GetContent(request);
+    //        callback(tex);
+    //    }
+    //}
 }
 
-[System.Serializable]
-public class DeepAIResponse
-{
-    public string output_url;
-}
+//[System.Serializable]
+//public class DeepAIResponse
+//{
+//    public string output_url;
+//}

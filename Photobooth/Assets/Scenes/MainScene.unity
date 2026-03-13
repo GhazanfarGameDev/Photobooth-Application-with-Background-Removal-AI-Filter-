@@ -1335,6 +1335,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402859905}
   m_CullTransparentMesh: 1
+--- !u!1 &432348965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432348967}
+  - component: {fileID: 432348966}
+  m_Layer: 0
+  m_Name: CSVManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &432348966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432348965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078a5acd201d6334786e1f4caaf4dbb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CSVManager
+--- !u!4 &432348967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432348965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 439.7323, y: 744.84705, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,6 +2393,7 @@ GameObject:
   - component: {fileID: 727050263}
   - component: {fileID: 727050265}
   - component: {fileID: 727050264}
+  - component: {fileID: 727050266}
   m_Layer: 5
   m_Name: RegistrationPage
   m_TagString: Untagged
@@ -2418,6 +2463,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727050262}
   m_CullTransparentMesh: 1
+--- !u!114 &727050266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727050262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf4bed1bf0d68a47937a6a17d06a7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegistrationPageUI
+  nameInput: {fileID: 733100090}
+  emailInput: {fileID: 808738154}
+  phoneInput: {fileID: 1122591349}
+  errorText: {fileID: 631117832}
 --- !u!1 &733100088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,6 +4543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cd9295dd6aab54ea016fe0abad3855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FileManager
+  lastSavedPath: 
 --- !u!4 &1299039660
 Transform:
   m_ObjectHideFlags: 0
@@ -4939,9 +5001,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2000423994}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowCapture
+      - m_Target: {fileID: 727050266}
+        m_TargetAssemblyTypeName: RegistrationPageUI, Assembly-CSharp
+        m_MethodName: OnNextPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5680,6 +5742,8 @@ GameObject:
   - component: {fileID: 1828917176}
   - component: {fileID: 1828917178}
   - component: {fileID: 1828917177}
+  - component: {fileID: 1828917180}
+  - component: {fileID: 1828917179}
   m_Layer: 5
   m_Name: SharePage
   m_TagString: Untagged
@@ -5747,6 +5811,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828917175}
   m_CullTransparentMesh: 1
+--- !u!114 &1828917179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828917175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f3b4a4b2c18f542a601e7d124d12c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SharePageUI
+  finalImage: {fileID: 1368970606}
+  qrManager: {fileID: 1828917180}
+--- !u!114 &1828917180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828917175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a2f59b57fad2e4fbb3623b90405a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QRManager
+  qrImage: {fileID: 118077176}
 --- !u!1 &1881551449
 GameObject:
   m_ObjectHideFlags: 0
@@ -6622,3 +6713,4 @@ SceneRoots:
   - {fileID: 227819511}
   - {fileID: 1299039660}
   - {fileID: 855864481}
+  - {fileID: 432348967}

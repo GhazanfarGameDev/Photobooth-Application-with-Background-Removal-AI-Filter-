@@ -4,7 +4,7 @@ using UnityEngine;
 public class FileManager : MonoBehaviour
 {
     public static FileManager Instance;
-
+    public string lastSavedPath;
     string outputFolder;
 
     void Awake()
@@ -31,7 +31,7 @@ public class FileManager : MonoBehaviour
         File.WriteAllBytes(path, bytes);
 
         Debug.Log("Saved photo at: " + path);
-
+        lastSavedPath = path;
         return path;
     }
 }
