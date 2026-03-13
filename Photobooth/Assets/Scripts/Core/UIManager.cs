@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowProcessing()
     {
-        HideAllPages();
+        //HideAllPages();
         processingPage.SetActive(true);
     }
 

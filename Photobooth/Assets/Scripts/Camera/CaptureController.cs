@@ -28,7 +28,7 @@ public class CaptureController : MonoBehaviour
         Texture2D photo = webcamManager.CapturePhoto();
 
         GameManager.Instance.SetCapturedPhoto(photo);
-
-        UIManager.Instance.ShowPreview();
+        FileManager.Instance.SavePhoto(photo);
+        GetComponent<AIProcessor>().ProcessImage();        
     }
 }
