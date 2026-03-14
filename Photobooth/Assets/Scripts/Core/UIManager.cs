@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class UIManager : MonoBehaviour
 
 
     public static UIManager Instance;
+
 
     [Header("Pages")]
     public GameObject homePage;
@@ -79,4 +81,7 @@ public class UIManager : MonoBehaviour
         //HideAllPages();
         //sharePage.SetActive(true);
     }
+
+
+
 }

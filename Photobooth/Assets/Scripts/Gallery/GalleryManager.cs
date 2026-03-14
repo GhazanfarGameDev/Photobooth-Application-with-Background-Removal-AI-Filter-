@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +15,20 @@ public class GalleryManager : MonoBehaviour
 
     void LoadGallery()
     {
+
+        // Remove previous items
+        foreach (Transform child in galleryParent)
+        {
+            Destroy(child.gameObject);
+        }
+
         string folder = Path.Combine(Application.persistentDataPath, "Outputs");
 
         if (!Directory.Exists(folder))
             return;
 
         string[] files = Directory.GetFiles(folder, "*.png");
+        Array.Reverse(files);
 
         foreach (string file in files)
         {

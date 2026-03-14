@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Captured Image")]
     public Texture2D capturedPhoto;
-
+    public string imageURL;
     [Header("Settings")]
     public bool skipValidation = false;
     public int captureCountdown = 3;

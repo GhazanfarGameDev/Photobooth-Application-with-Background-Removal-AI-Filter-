@@ -19,8 +19,26 @@ public class AIProcessor : MonoBehaviour
             {
                 GameManager.Instance.capturedPhoto = result;
                 FileManager.Instance.SavePhoto(result);
-                UIManager.Instance.HideAllPages();
-                UIManager.Instance.sharePage.SetActive(true);
+
+                byte[] bytes = result.EncodeToPNG();
+                StartCoroutine(
+    CloudinaryUploader.Instance.UploadImage(bytes, (url) =>
+    {
+        if (url != null)
+        {
+            GameManager.Instance.imageURL = url;
+            UIManager.Instance.HideAllPages();
+            UIManager.Instance.sharePage.SetActive(true);
+            //UIManager.Instance.ShowShare();
+        }
+        else
+        {
+            Debug.Log("URL is Null");
+        }
+    })
+);
+                //UIManager.Instance.HideAllPages();
+                //UIManager.Instance.sharePage.SetActive(true);
                 //UIManager.Instance.ShowShare();
             }
             else

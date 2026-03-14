@@ -10,8 +10,8 @@ public class SharePageUI : MonoBehaviour
     {
         finalImage.texture = GameManager.Instance.capturedPhoto;
 
-        string path = FileManager.Instance.lastSavedPath;
-
-        qrManager.GenerateQR(path);
+        //string path = FileManager.Instance.lastSavedPath;
+        qrManager.GenerateQR(GameManager.Instance.imageURL);
+        //qrManager.GenerateQR(path);
     }
 }
