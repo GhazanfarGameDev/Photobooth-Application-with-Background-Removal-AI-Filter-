@@ -2,69 +2,80 @@
 
 ### Background Removal API
 
-The application uses the **Remove Background API** provided by **DeepAI** for automatic background removal.
+The application integrates the **remove.bg API** for automatic background removal.
 
 Workflow:
 
 1. The user captures a photo using the webcam.
-2. The captured image is sent to the background removal API.
-3. The API processes the image and returns a background-removed version.
-4. The processed image is then displayed in the preview frame.
+2. The captured image is temporarily stored in memory and shown in a preview screen.
+3. Once the user confirms the photo, the image is sent to the **remove.bg API**.
+4. The API processes the image and returns a version with the background removed.
+5. The processed image is then displayed to the user and used as the final result.
 
-Assumptions:
+Notes:
 
-* A stable internet connection is required for API processing.
-* API requests may take a few seconds depending on network speed and server response time.
-* If the API fails, the application displays an error message and allows the user to retry.
+* Background removal occurs **only after the user confirms the captured photo**, reducing unnecessary API calls.
+* The API response is received as image data and converted back into a `Texture2D` inside Unity.
+* Processing time may vary depending on network speed and API response time.
 
 ---
 
-### Image Hosting & QR Code Sharing
+### Image Upload & Sharing
 
-The application uploads the final processed image to **Cloudinary** for public access and sharing.
+To enable photo downloads on mobile devices, the final processed image is uploaded to **Cloudinary**.
 
 Workflow:
 
-1. After successful background removal, the final image is saved locally.
-2. The same image is uploaded to **Cloudinary** using an unsigned upload preset.
-3. Cloudinary returns a public image URL.
+1. After successful background removal, the processed image is saved locally.
+2. The same image is uploaded to Cloudinary using an **unsigned upload preset**.
+3. Cloudinary returns a publicly accessible image URL.
 4. A QR code is generated from this URL.
 5. Users can scan the QR code on a mobile device to download or view the photo.
 
-Assumptions:
+Notes:
 
-* The Cloudinary free tier is sufficient for this demo application.
-* The upload preset is configured as **unsigned** for simplicity and ease of integration.
-* Uploaded images are publicly accessible via the generated URL.
+* The Cloudinary free tier is sufficient for this demonstration project.
+* Uploaded images are publicly accessible through the generated URL.
 
 ---
 
-### Local Storage
+### Local Storage & Gallery
 
-Captured and processed images are also stored locally using Unity's persistent data path.
+All processed photos are also stored locally using Unity's **persistent data path**.
 
 Purpose:
 
-* Display images in the local gallery.
-* Maintain a history of previously captured photos.
+* Maintain a local archive of captured photos.
+* Display previously captured photos in the gallery section of the home page.
 
 Gallery Behavior:
 
-* The newest images appear first in the gallery.
 * Images are loaded dynamically when the Home page is opened.
+* The **most recent photo appears first**, while older photos appear later.
+* Duplicate UI elements are prevented by clearing existing gallery items before reloading.
 
 ---
 
-### Design Decisions
+### Application Workflow
 
-* The application follows a **capture → preview → confirm → process → share** workflow to allow users to review photos before processing.
-* Background removal occurs **only after the user confirms the captured photo**, preventing unnecessary API calls.
-* The final processed image (not the raw capture) is the version shared via QR code.
+The application follows a structured user flow:
+
+Capture Photo → Preview Photo → Confirm → Background Removal → Upload Image → Generate QR Code → Share / Download
+
+This flow ensures the user can review the photo before processing and prevents unnecessary API requests.
+
+---
+
+### Assumptions
+
+* A stable internet connection is required for API processing and image upload.
+* API response time depends on network speed and external service availability.
+* For simplicity, image uploads are configured using an unsigned upload preset on Cloudinary.
 
 ---
 
 ### Limitations
 
-* The application relies on external APIs for background removal and cloud storage.
-* API rate limits or network issues may affect processing time.
-* Security for image uploads is simplified for demonstration purposes.
+* The application depends on external APIs (remove.bg and Cloudinary).
+* Network issues or API limits may affect processing time.
+* Security configuration for cloud uploads is simplified for demonstration purposes.
