@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
         ShowHome();
     }
 
-    void HideAllPages()
+    public void HideAllPages()
     {
         homePage.SetActive(false);
         registrationPage.SetActive(false);
@@ -70,7 +70,13 @@ public class UIManager : MonoBehaviour
 
     public void ShowShare()
     {
-        HideAllPages();
-        sharePage.SetActive(true);
+        ShowProcessing();
+        //UnSaved
+        //FileManager.Instance.SavePhoto(photo);
+        //Unprocessed
+        previewPage.GetComponent<AIProcessor>().ProcessImage();
+
+        //HideAllPages();
+        //sharePage.SetActive(true);
     }
 }

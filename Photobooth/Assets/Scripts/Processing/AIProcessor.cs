@@ -5,7 +5,6 @@ public class AIProcessor : MonoBehaviour
 {
     public void ProcessImage()
     {
-        UIManager.Instance.ShowProcessing();
 
         Texture2D photo = GameManager.Instance.capturedPhoto;
 
@@ -19,12 +18,16 @@ public class AIProcessor : MonoBehaviour
             if (result != null)
             {
                 GameManager.Instance.capturedPhoto = result;
-                UIManager.Instance.ShowPreview();
+                FileManager.Instance.SavePhoto(result);
+                UIManager.Instance.HideAllPages();
+                UIManager.Instance.sharePage.SetActive(true);
+                //UIManager.Instance.ShowShare();
             }
             else
             {
+                UIManager.Instance.HideAllPages();
                 Debug.Log("Processing failed");
-                UIManager.Instance.ShowPreview();
+                UIManager.Instance.ShowCapture();
             }
         });
     }

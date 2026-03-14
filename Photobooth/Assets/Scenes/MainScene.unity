@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 4
 --- !u!1 &668863076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2267,7 @@ GameObject:
   - component: {fileID: 669533693}
   - component: {fileID: 669533692}
   - component: {fileID: 669533694}
+  - component: {fileID: 669533695}
   m_Layer: 5
   m_Name: PreviewPage
   m_TagString: Untagged
@@ -2347,6 +2348,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreviewPageUI
   previewImage: {fileID: 1611874380}
+--- !u!114 &669533695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669533690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6571130b78c1bb74d8d367d53f82bc6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIProcessor
 --- !u!1 &672874030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5392,7 +5405,6 @@ GameObject:
   - component: {fileID: 1624646393}
   - component: {fileID: 1624646395}
   - component: {fileID: 1624646396}
-  - component: {fileID: 1624646397}
   m_Layer: 5
   m_Name: CapturePage
   m_TagString: Untagged
@@ -5489,18 +5501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CaptureController
   webcamManager: {fileID: 1624646395}
   countdownText: {fileID: 668863078}
---- !u!114 &1624646397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624646391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6571130b78c1bb74d8d367d53f82bc6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AIProcessor
 --- !u!1 &1648961436
 GameObject:
   m_ObjectHideFlags: 0
@@ -5604,8 +5604,8 @@ RectTransform:
   - {fileID: 402859906}
   - {fileID: 727050263}
   - {fileID: 1624646392}
-  - {fileID: 250507033}
   - {fileID: 669533691}
+  - {fileID: 250507033}
   - {fileID: 1828917176}
   m_Father: {fileID: 1248876448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
